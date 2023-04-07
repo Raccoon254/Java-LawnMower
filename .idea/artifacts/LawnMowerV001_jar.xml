@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="LawnMowerV001:jar">
+    <output-path>$PROJECT_DIR$/..</output-path>
+    <root id="archive" name="LawnMowerV001.jar">
+      <element id="module-output" name="LawnMowerV001" />
+    </root>
+  </artifact>
+</component>
