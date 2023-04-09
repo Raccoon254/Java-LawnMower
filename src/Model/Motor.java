@@ -1,3 +1,5 @@
+package Model;
+
 public class Motor {
     public void start() {
         // Start the motor

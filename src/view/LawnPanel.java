@@ -1,3 +1,8 @@
+package view;
+import view.*;
+import Model.*;
+import controller.*;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -5,13 +10,15 @@ public class LawnPanel extends JPanel {
     private Color[][] cellColors;
 
     Mower mower;
+    Color myColor = new Color(88, 96, 4);
+
     public LawnPanel(Mower mower) {
         this.mower = mower;
         // Initialize all cell colors to green
         cellColors = new Color[Lawn.WIDTH][Lawn.HEIGHT];
         for (int i = 0; i < Lawn.WIDTH; i++) {
             for (int j = 0; j < Lawn.HEIGHT; j++) {
-                cellColors[i][j] = Color.GREEN;
+                cellColors[i][j] = myColor;
             }
         }
     }
@@ -37,7 +44,7 @@ public class LawnPanel extends JPanel {
                 int y = j * cellHeight;
                 g.setColor(cellColors[i][j]);
                 g.fillRect(x, y, cellWidth, cellHeight);
-                g.setColor(Color.GRAY);
+                g.setColor(new Color(0, 214, 28));
                 g.drawRect(x, y, cellWidth, cellHeight);
             }
         }

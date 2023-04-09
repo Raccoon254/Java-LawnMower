@@ -1,3 +1,7 @@
+package Model;
+import view.*;
+import Model.*;
+import controller.*;
 public class Sensor {
     private LawnMowerEmulator observer;
 

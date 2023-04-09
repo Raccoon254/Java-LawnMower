@@ -1,3 +1,8 @@
+
+package Model;
+import view.*;
+import Model.*;
+import controller.*;
 public class Mower {
     private int positionX;
     private int positionY;

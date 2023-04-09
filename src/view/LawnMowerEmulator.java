@@ -1,3 +1,11 @@
+package view;
+import view.*;
+import Model.*;
+import controller.*;
+import view.*;
+import Model.*;
+import controller.*;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -62,8 +70,6 @@ public class LawnMowerEmulator extends JFrame implements MowerObserver {
 
     @Override
     public void onMove(Mower mower) {
-        //This Method summons itself when the mower moves
-        System.out.println("Mower moved to " + mower.getPositionX() + ", " + mower.getPositionY());
         lawnPanel.repaint();
     }
 
