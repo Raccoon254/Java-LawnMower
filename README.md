@@ -1,4 +1,6 @@
 # Lawn Mower Emulator
+
+<img src="LawnMower.png">
 The Lawn Mower Emulator is a Java program designed to simulate the movement of a lawn mower on a lawn using a graphical user interface. The program uses the Model-View-Controller (MVC) architecture and implements the state and observer design patterns to encapsulate the mower's behavior and notify the observer when the mower reaches the edge of the lawn.
 
 # Features
