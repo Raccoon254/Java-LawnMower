@@ -1,13 +1,20 @@
 package view;
-import view.*;
-import Model.*;
-import controller.*;
+import Model.Mower;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.Arrays;
+
+/*
+* --This class is used to represent the lawn panel
+* --This class has two methods --@setCellColor() and @paintComponent()
+* --The @setCellColor() method is used to set the color of the cell
+* --The @paintComponent() method is used to paint the component
+* --The class uses --Graphics, JPanel, Color, Mower, and Arrays
+* */
 
 public class LawnPanel extends JPanel {
-    private Color[][] cellColors;
+    private final Color[][] cellColors;
 
     Mower mower;
     Color myColor = new Color(88, 96, 4);
@@ -17,9 +24,7 @@ public class LawnPanel extends JPanel {
         // Initialize all cell colors to green
         cellColors = new Color[Lawn.WIDTH][Lawn.HEIGHT];
         for (int i = 0; i < Lawn.WIDTH; i++) {
-            for (int j = 0; j < Lawn.HEIGHT; j++) {
-                cellColors[i][j] = myColor;
-            }
+            Arrays.fill(cellColors[i], myColor);
         }
     }
 

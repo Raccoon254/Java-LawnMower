@@ -1,22 +1,29 @@
 
 package Model;
-import view.*;
-import Model.*;
 import controller.*;
+import view.LawnMowerEmulator;
+
+/*
+* --This class is used to represent the mower.
+* --This class has 13 methods --@start(), @stop(), @moveLeft(), @moveRight(), @moveDown(), @getPositionX(), @getPositionY(),
+* @setPositionX(), @setPositionY(), @getDirection(), @setDirection(), @getMotor(), @getGrassCutter(), @getSensor()
+* --The method names are descriptive enough to explain what they do
+*
+*/
 public class Mower {
     private int positionX;
     private int positionY;
     private Direction direction;
-    private Motor motor;
-    private GrassCutter grassCutter;
-    private Sensor sensor;
-    private MowerState eastState;
-    private MowerState westState;
-    private MowerState southeastState;
-    private MowerState southwestState;
+    private final Motor motor;
+    private final GrassCutter grassCutter;
+    private final Sensor sensor;
+    private final MowerState eastState;
+    private final MowerState westState;
+    private final MowerState southeastState;
+    private final MowerState southwestState;
     private MowerState currentState;
     boolean isRunning = false;
-    private LawnMowerEmulator lawnMowerEmulator;
+    private final LawnMowerEmulator lawnMowerEmulator;
 
 
     public Mower(int positionX, int positionY, Direction direction, Motor motor,
@@ -39,11 +46,11 @@ public class Mower {
         this.currentState = state;
     }
 
+    /*
+    * --The method is used to start the mower --By using a thread
+    * --The sleep method controls the speed of the mower
+    */
 
-    public void repaint(int x, int y) {
-        lawnMowerEmulator.clearMower(x, y);
-        lawnMowerEmulator.onMove(this);
-    }
     public void start() {
         motor.start();
         if (!isRunning) {
@@ -85,9 +92,10 @@ public class Mower {
     }
 
 
+    //Getters and Setters 👇
     public void moveDown() {
         currentState.execute(this, Direction.SOUTHWEST);
-
+        currentState.execute(this, Direction.SOUTHEAST);
     }
 
     public int getPositionX() {

@@ -1,7 +1,12 @@
 package Model;
-import view.*;
-import Model.*;
-import controller.*;
+
+import view.LawnMowerEmulator;
+
+/*
+* --This class is used to represent the sensor of the mower.
+* --This class has four methods --@isAtRightEdge(), @isAtLeftEdge(), @isAtBottomEdge(), @attach()
+* --The methods sense the location of the mower and notify the observers when the mower moves.
+*/
 public class Sensor {
     private LawnMowerEmulator observer;
 

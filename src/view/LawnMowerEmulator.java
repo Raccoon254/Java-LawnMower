@@ -1,26 +1,30 @@
 package view;
-import view.*;
 import Model.*;
-import controller.*;
-import view.*;
-import Model.*;
-import controller.*;
-
+import controller.MowerObserver;
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+
+/*
+* --This class is used to represent the lawn mower emulator --Which is the main class of the application
+* --This class has two methods --@main() and @onMove()
+* --The @main() method is used to start the application
+* --The @onMove() method is used to notify the observers when the mower moves
+* --This class has two fields --@lawnPanel and @mower
+* --The @lawnPanel field is used to represent the lawn panel
+* --The @mower field is used to represent the mower
+* --This class has one constructor --@LawnMowerEmulator()
+* --This class implements the @MowerObserver interface
+* */
 
 public class LawnMowerEmulator extends JFrame implements MowerObserver {
     public LawnPanel lawnPanel;
-    private Mower mower;
+    private final Mower mower;
 
     public LawnMowerEmulator() {
         // Initialize mower
         Motor motor = new Motor();
         GrassCutter grassCutter = new GrassCutter();
         Sensor sensor = new Sensor();
-        Lawn lawn = new Lawn();
         mower = new Mower(0, 0, Direction.EAST, motor, grassCutter, sensor,LawnMowerEmulator.this);
         mower.setState(mower.getEastState());
         mower.getSensor().attach(this);
@@ -34,20 +38,10 @@ public class LawnMowerEmulator extends JFrame implements MowerObserver {
         JButton startButton = new JButton("Start");
         JButton stopButton = new JButton("Stop");
 
-        startButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                mower.start();
-            }
-        });
+        startButton.addActionListener(e -> mower.start());
 
 
-        stopButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                mower.stop();
-            }
-        });
+        stopButton.addActionListener(e -> mower.stop());
 
         controlPanel.add(startButton);
         controlPanel.add(stopButton);
